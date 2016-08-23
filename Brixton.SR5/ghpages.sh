@@ -72,8 +72,9 @@ function retrieve_doc_properties() {
     MAIN_ADOC_VALUE=$("${MAVEN_PATH}"mvn -q \
         -Dexec.executable="echo" \
         -Dexec.args='${docs.main}' \
-        --non-recursive \
-        org.codehaus.mojo:exec-maven-plugin:1.3.1:exec)
+        org.codehaus.mojo:exec-maven-plugin:1.3.1:exec \
+        -P docs \
+        -pl docs)
     echo "Extracted 'main.adoc' from Maven build [${MAIN_ADOC_VALUE}]"
 
 
